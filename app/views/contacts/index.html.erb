@@ -1,1 +1,24 @@
-
+<div class="container">
+  <h2>Welcome to Contactually Lite</h2>
+  <p>by Lianna Newman</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last  Name</th>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+          <th>Company Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <td>contact.first_name</td>
+          <td>contact.last_name</td>
+          <td>contact.email_address</td>
+          <td>contact.phone_number</td>
+          <td>contact.company_name</td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
