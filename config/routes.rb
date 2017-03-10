@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get '/' => 'contacts#index'
-
+  resources :contacts do
+    collection { post :import }
+  end
+  
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

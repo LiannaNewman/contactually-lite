@@ -1,11 +1,23 @@
 <div class="container">
+  <%= flash[:notice] %>
   <h2>Welcome to Contactually Lite</h2>
   <p>by Lianna Newman</p>
+    <div>
+      <h4>Import Additional Contacts</h4>
+      <%= form_tag({action: :import}, multipart: true) do %>
+        <span class="btn btn-secondary btn-file">
+          Choose File
+          <%= file_field_tag :file %>
+        </span>
+        <%= submit_tag "Import Contacts", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>
           <th>First Name</th>
-          <th>Last  Name</th>
+          <th>Last Name</th>
           <th>Email Address</th>
           <th>Phone Number</th>
           <th>Company Name</th>
@@ -13,12 +25,14 @@
       </thead>
       <tbody>
         <% @contacts.each do |contact| %>
-          <td>contact.first_name</td>
-          <td>contact.last_name</td>
-          <td>contact.email_address</td>
-          <td>contact.phone_number</td>
-          <td>contact.company_name</td>
+          <tr>
+            <td><%= contact.first_name %></td>
+            <td><%= contact.last_name %></td>
+            <td><%= contact.email_address %></td>
+            <td><%= contact.phone_number %></td>
+            <td><%= contact.company_name %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
+</div>
