@@ -51,7 +51,7 @@
     }, true);
 
     $scope.customFilter = function(contact) {
-      if (contact.email_address === $scope.filterEmail.store.email_address) {
+      if (contact.email_address.includes($scope.filterEmail.store.email_address)) {
         return true;
       } else if ($scope.filterEmail.store.email_address === '') {
         return true;
