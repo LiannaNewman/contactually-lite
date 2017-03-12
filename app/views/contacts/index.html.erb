@@ -4,23 +4,22 @@
     <div class="container">
       <h2 class="page-header">Welcome to Contactually Lite</h2>
       <p>by Lianna Newman</p>
+        <h5>Sort Alphabetically by Email:</h5> <select ng-model="sortEmail.store" ng-options="item.name for item in sortOptions.stores"></select>
+        <h5>Display Only Emails Ending in:</h5> <select ng-model="filterEmail.store" ng-options="item.name for item in filter0ptions.stores"></select>
+        <input type="text" ng-model="filterAll" list="email_address" placeholder="Example: .com">
         <table class="table table-striped">
           <thead>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>
-                <button class="btn btn-secondary" ng-click="sortBy('email_address')">Email Address
-                  <span class="sortorder glyphicon glyphicon-sort" ng-show="propertyName === 'email_address'" ng-class="{reverse: reverse}"></span>
-                </button>
-              </th>
+              <th>Email Address</th>
               <th>Phone Number</th>
               <th>Company Name</th>
               <th>Delete Contact?</th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="contact in contacts | orderBy:propertyName:reverse">
+            <tr ng-repeat="contact in contacts | orderBy:'email_address':reverse | filter:customFilter | filter: {email_address:filterAll}">
               <td>{{contact.first_name}}</td>
               <td>{{contact.last_name}}</td>
               <td>{{contact.email_address}}</td>
