@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module("app").controller('contactCtrl',function($scope, $http) {
+  angular.module("app").controller('contactCtrl',['$scope', '$http', function($scope, $http) {
     function setup() {
       $http.get('/api/v1/contacts.json').then(function(response) {
         $scope.contacts = response.data;
@@ -66,5 +66,5 @@
         $scope.contacts.splice(index, 1);
       });
     };
-  });
+  }]);
 })();
