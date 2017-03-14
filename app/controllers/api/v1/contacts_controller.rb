@@ -20,11 +20,7 @@ module Api
 
       def destroy
         @contact = Contact.find_by(id: params[:id])
-        if @contact.destroy
-          render json: {success: 'Contact was successfully deleted!'}
-        else
-          render json: {danger: 'Something went wrong, please refresh page and try again.'}
-        end
+        @contact.destroy
       end
     end
   end

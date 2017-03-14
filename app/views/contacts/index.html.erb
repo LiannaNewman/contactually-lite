@@ -1,7 +1,7 @@
-<%= flash[:notice] %>
 <div ng-app="app">
   <div ng-controller='contactCtrl'>
     <div class="container">
+      <%= success %>
       <h2 class="page-header">Welcome to Contactually Lite</h2>
       <p>by Lianna Newman</p>
         <h5>Sort Alphabetically by Email:</h5> <select ng-model="sortEmail.store" ng-options="item.name for item in sortOptions.stores"></select>
@@ -37,10 +37,7 @@
   <div>
     <h4>Import Additional Contacts</h4>
     <%= form_tag({action: :import}, multipart: true) do %>
-      <span class="btn btn-secondary btn-file">
-        Choose File
-        <%= file_field_tag :file %>
-      </span>
+      <%= file_field_tag :file, accept: '.csv' %>
       <%= submit_tag "Import Contacts", class: "btn btn-primary" %>
     <% end %>
   </div>
