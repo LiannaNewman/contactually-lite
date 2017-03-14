@@ -23,8 +23,7 @@
     display: block;
 }
 
-.table {
-  height: 450px;
-  overflow-y: scroll;
-  display: block;
+.table_outer {
+  height: 20em;
+  overflow: auto;
 }
