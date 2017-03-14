@@ -61,10 +61,12 @@
     };
 
     $scope.deleteContact = function(contact) {
-      var index = $scope.contacts.indexOf(contact);
-      $http.delete('/api/v1/contacts/' + contact.id + '.json').then(function(response) {
-        $scope.contacts.splice(index, 1);
-      });
+      if (confirm("Are you sure you want to delete this Contact?")) {
+        var index = $scope.contacts.indexOf(contact);
+        $http.delete('/api/v1/contacts/' + contact.id + '.json').then(function(response) {
+          $scope.contacts.splice(index, 1);
+        });
+      }
     };
   }]);
 })();
